@@ -1,0 +1,40 @@
+# =========================
+# .NET / C#
+# =========================
+bin/
+obj/
+*.user
+*.userosscache
+*.suo
+*.cache
+*.dll
+*.pdb
+*.exe
+.vs/
+*.log
+
+# =========================
+# Angular / Node
+# =========================
+ClientApp/node_modules/
+ClientApp/dist/
+ClientApp/.angular/
+ClientApp/.sass-cache/
+*.tmp
+*.temp
+
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# =========================
+# Environment
+# =========================
+*.env
+*.env.local
+appsettings.Development.json
