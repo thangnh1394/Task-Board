@@ -1,0 +1,40 @@
+:host {
+  flex: 1;
+  display: block;
+}
+
+.column-header {
+  padding: 0.75rem 1rem;
+  border-radius: 8px 8px 0 0;
+
+  h2 {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+  }
+}
+
+.column-header.to-do {
+  background: #4a90a4;
+}
+
+.column-header.in-progress {
+  background: #f5a623;
+}
+
+.column-header.done {
+  background: #7cb342;
+}
+
+.column-content {
+  min-height: 400px;
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 0 0 8px 8px;
+}
+
+.empty-message {
+  color: #888;
+  text-align: center;
+  margin-top: 2rem;
+}

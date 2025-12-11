@@ -1,0 +1,47 @@
+<div class="board-container">
+  <header class="board-header">
+    <h1>Task Board</h1>
+    <button class="btn-add" (click)="onAddTask()">+ Add Task</button>
+  </header>
+
+  @if(isLoading()) {
+  <div class="loading">
+    <p>Loading tasks...</p>
+  </div>
+  } @if(errorMessage()) {
+  <div class="error-banner">
+    <p>{{ errorMessage() }}</p>
+    <button (click)="taskService.refreshTasks()">Retry</button>
+  </div>
+  } @if(!isLoading()) {
+  <main class="board">
+    <app-column
+      title="To Do"
+      status="to-do"
+      [tasks]="(todoTasks | async) ?? []"
+      (editTask)="onEditTask($event)"
+      (deleteTask)="onDeleteTask($event)"
+    />
+
+    <app-column
+      title="In Progress"
+      status="in-progress"
+      [tasks]="(inProgressTasks | async) ?? []"
+      (editTask)="onEditTask($event)"
+      (deleteTask)="onDeleteTask($event)"
+    />
+
+    <app-column
+      title="Done"
+      status="done"
+      [tasks]="(doneTasks | async) ?? []"
+      (editTask)="onEditTask($event)"
+      (deleteTask)="onDeleteTask($event)"
+    />
+  </main>
+  }
+</div>
+
+@if (showForm) {
+<app-task-form [task]="editingTask" (save)="onSaveTask($event)" (cancel)="closeForm()" />
+}
